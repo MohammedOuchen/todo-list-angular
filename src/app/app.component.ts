@@ -9,20 +9,19 @@ export class AppComponent {
   title = 'todo-list';
   task = ''
   tasks = [
-          { id: 1, value: 'to do 1'},
+    { id: 1, value: 'to do 1', done: false},
   ]
 
   addTask () {
-    this.tasks.push({ id: this.tasks.length+1, value: this.task})
+    this.tasks.push({ id: this.tasks.length+1, value: this.task, done: false})
     this.task = '';
   }
 
   editTask(index: any) {
-    console.log('edit index =>', index);
+    this.tasks[index].done = !this.tasks[index].done
   }
 
   deleteTask (index: any) {
-    console.log('delete Task => ', index);
     this.tasks.splice(index, 1)
   }
 }

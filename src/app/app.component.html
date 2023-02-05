@@ -17,10 +17,12 @@
   <div class="col-6">
     <ul>
       <li style="display: flex;" *ngFor="let task of tasks; let index = index">
-        {{ task.value }}
+        <div *ngIf="!task.done">{{ task.value }}</div>
+        <div *ngIf="task.done">{{ task.value }} - Completed</div>
         <div style="margin-left: auto;">
-          <button class="btn btn-primary mr-2" (click)="editTask(index)">Edit</button>
-          <button class="btn btn-danger" (click)="deleteTask(index)">Delete</button>
+          <button *ngIf="!task.done" class="btn btn-primary mr-2" (click)="editTask(index)">Done</button>
+          <button *ngIf="task.done" class="btn btn-primary mr-2" (click)="editTask(index)">Not done</button>
+          <button  class="btn btn-danger" (click)="deleteTask(index)">Delete</button>
         </div>
       </li>
     </ul>
