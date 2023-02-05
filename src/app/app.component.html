@@ -1,6 +1,30 @@
+<div class="row mt-5">
+  <div class="col-3">
+  </div>
+  <div class="col-6 text-center">
+    <h1>To Do List</h1>
+    <div class="form-group d-flex">
+      <input type="text" class="form-control" style="width: 60%" [(ngModel)]='task'>
+      <button class="btn btn-success" (click) = "addTask()">Ajouter</button>
+    </div>
+  </div>
+  <div class="col-3">
+  </div>
+</div>
 <div class="row">
+  <div class="col-3">
+  </div>
   <div class="col-6">
-    <h1>text</h1>
-    <input type="text" name="" id="" class="form-control">
+    <ul>
+      <li style="display: flex;" *ngFor="let task of tasks; let index = index">
+        {{ task.value }}
+        <div style="margin-left: auto;">
+          <button class="btn btn-primary mr-2" (click)="editTask(index)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteTask(index)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-3">
   </div>
 </div>
